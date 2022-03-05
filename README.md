@@ -15,7 +15,7 @@ The setups steps expect following tools installed on the system.
 
 ##### 1. Check out the repository
 
-repo url : git@github.com:willyjie23/dl-operation.git
+repo url : `git@github.com:willyjie23/dl-operation.git`
 
 ```bash
 git clone git@github.com:willyjie23/dl-operation.git
