@@ -4,5 +4,7 @@ Rails.application.routes.draw do
   get 'home/index'
   root 'home#index'
 
-  resources :admins
+  namespace :admin do
+    resources :blogs
+  end
 end

@@ -6,6 +6,6 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(_resource)
-    admins_path
+    admin_blogs_path
   end
 end

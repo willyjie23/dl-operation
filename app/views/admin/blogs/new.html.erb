@@ -1,0 +1,8 @@
+<div class="container">
+  <h1>Create a new Blog</h1>
+
+  <%= form_with model: [:admin, @blog] do |form| %>
+    <%= form.text_field :name, placeholder: "Blog Name" %>
+    <%= form.submit %>
+  <% end %>
+</div>
