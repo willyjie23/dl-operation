@@ -8,12 +8,13 @@
   <% if current_user.admin? %>
     <br>
     <div class="mb-3">
-      <%= form.label :user_ids, class: "form-label" %>
-      <%= form.select :user_ids, User.all.collect { |x| [x.name, x.id] }, {}, multiple: true %>
+      <%= form.label :user_ids, 'Users', class: "form-label" %>
+      <%= form.select :user_ids, user_collect, {}, multiple: true, class: "form-select" %>
     </div>
   <% end %>
 
   <br>
 
   <%= form.submit class: "btn btn-primary" %>
+  <%= link_to 'Back', url_for(:back), class: "btn btn-danger" %>
 <% end %>

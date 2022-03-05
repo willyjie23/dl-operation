@@ -10,6 +10,6 @@
 puts 'Seeding...'
 
 User.create(name: 'admin', email: 'admin@gmail.com', password: '123456', role: 1)
-User.create(name: 'clienr', email: 'client@gmail.com', password: '123456', role: 2)
+User.create(name: 'client', email: 'client@gmail.com', password: '123456', role: 2)
 
 puts 'Done...'

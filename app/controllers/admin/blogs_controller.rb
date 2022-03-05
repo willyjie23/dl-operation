@@ -2,6 +2,8 @@ class Admin::BlogsController < Admin::BaseController
   before_action :find_blog, only: [:show, :edit, :update, :destroy]
   before_action :enable_access?, only: [:show, :edit, :update, :destroy]
 
+  helper_method :user_collect
+
   def index
     @blogs = current_user.blogs
   end
@@ -35,6 +37,14 @@ class Admin::BlogsController < Admin::BaseController
   def destroy
     @blog.destroy
     redirect_to admin_blogs_path
+  end
+
+  def user_collect
+    User.all.collect do |x|
+      next if x.id == current_user.id
+
+      [x.name, x.id]
+    end.compact
   end
 
   private
