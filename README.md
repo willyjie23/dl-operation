@@ -3,22 +3,52 @@
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
-Things you may want to cover:
+## Environment
 
-* Ruby version
+The setups steps expect following tools installed on the system.
 
-* System dependencies
+- Ruby 3.0.2
+- Rails 6.1.4
+- SQLite
 
-* Configuration
+## Repo
 
-* Database creation
+##### 1. Check out the repository
 
-* Database initialization
+repo url : git@github.com:willyjie23/dl-operation.git
 
-* How to run the test suite
+```bash
+git clone git@github.com:willyjie23/dl-operation.git
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+##### 2. Create and setup the database
 
-* Deployment instructions
+Run the following commands to create and setup the database.
 
-* ...
+```bash
+bundle install
+bundle exec rake db:create
+bundle exec rake db:migrate
+bundle exec rake db:seed
+```
+
+##### 3. Start the Rails server
+
+You can start the rails server using the command given below.
+
+```bash
+rails server
+```
+
+login user
+```
+## admin user
+email: 'admin@gmail.com',
+password: '123456'
+
+## client user
+email: 'client@gmail.com',
+password: '123456'
+```
+
+And now you can visit the site with the URL http://localhost:3000
