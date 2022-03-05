@@ -1,5 +1,6 @@
 class Admin::BlogsController < Admin::BaseController
   before_action :find_blog, only: [:show, :edit, :update, :destroy]
+
   def index
     @blogs = current_user.blogs
   end
@@ -23,7 +24,7 @@ class Admin::BlogsController < Admin::BaseController
   def edit; end
 
   def update
-    if @blog.update(article_params)
+    if @blog.update(blog_params)
       redirect_to admin_blogs_path
     else
       render :edit
@@ -38,7 +39,7 @@ class Admin::BlogsController < Admin::BaseController
   private
 
   def blog_params
-    params.require(:blog).permit(:name)
+    params.require(:blog).permit(:name, user_ids: [])
   end
 
   def find_blog

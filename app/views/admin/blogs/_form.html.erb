@@ -5,6 +5,14 @@
     <%= form.text_field :name, class: "form-control", placeholder: "Blog name" %>
   </div>
 
+  <% if current_user.admin? %>
+    <br>
+    <div class="mb-3">
+      <%= form.label :user_ids, class: "form-label" %>
+      <%= form.select :user_ids, User.all.collect { |x| [x.name, x.id] }, {}, multiple: true %>
+    </div>
+  <% end %>
+
   <br>
 
   <%= form.submit class: "btn btn-primary" %>
