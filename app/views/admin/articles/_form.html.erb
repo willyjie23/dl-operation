@@ -1,0 +1,25 @@
+<%= form_with model: [:admin, :blog, article] do |form| %>
+
+  <div class="mb-3">
+    <%= form.label :title, class: "form-label" %>
+    <%= form.text_field :title, class: "form-control", placeholder: "Article title" %>
+  </div>
+
+  <br>
+
+  <div class="mb-3">
+    <%= form.label :context, class: "form-label" %>
+    <%= form.text_area :context, class: "form-control" %>
+  </div>
+
+  <br>
+
+  <div class="mb-3 form-check">
+    <%= form.label :is_private, '私有文章', class: "form-check-label" %>
+    <%= form.check_box :is_private, class: "form-check-input" %>
+  </div>
+
+  <br>
+  <%= form.submit class: "btn btn-primary" %>
+<% end %>
+
