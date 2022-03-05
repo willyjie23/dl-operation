@@ -1,5 +1,6 @@
 class Admin::BlogsController < Admin::BaseController
   before_action :find_blog, only: [:show, :edit, :update, :destroy]
+  before_action :enable_access?, only: [:show, :edit, :update, :destroy]
 
   def index
     @blogs = current_user.blogs
@@ -44,5 +45,9 @@ class Admin::BlogsController < Admin::BaseController
 
   def find_blog
     @blog = Blog.find(params[:id])
+  end
+
+  def enable_access?
+    render404 unless current_user.blog_ids.include?(@blog.id)
   end
 end

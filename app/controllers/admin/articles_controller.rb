@@ -1,6 +1,7 @@
 class Admin::ArticlesController < Admin::BaseController
-  before_action :find_blog, only: [:new, :create, :destroy]
+  before_action :find_blog, only: [:new, :create, :edit, :destroy]
   before_action :find_article, only: [:edit, :update, :destroy]
+  before_action :enable_access?, only: [:new, :edit]
 
   def new
     @article = @blog.articles.build
@@ -41,5 +42,9 @@ class Admin::ArticlesController < Admin::BaseController
 
   def find_article
     @article = Article.find(params[:id])
+  end
+
+  def enable_access?
+    render404 unless current_user.blog_ids.include?(@blog.id)
   end
 end
